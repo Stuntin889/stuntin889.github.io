@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#convert-button').click(function() {
+                const fahrenheit = parseFloat($('#fahrenheit-input').val());
+                if (!isNaN(fahrenheit)) {
+                    const celsius = (fahrenheit - 32) * (5/9);
+                    const kelvin = celsius + 273.15;
+                    $('#result').text(`Celsius: ${celsius.toFixed(2)}°C, Kelvin: ${kelvin.toFixed(2)}K`);
+                } else {
+                    $('#result').text('Please enter a valid number for Fahrenheit.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Weather Converter</h1>
+    </header>
+
+    <main>
+        <input type="text" id="fahrenheit-input" placeholder="Enter temperature in Fahrenheit">
+        <button id="convert-button">Convert</button>
+        <p id="result"></p>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-date"></span> Your Name</p>
+    </footer>
+
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

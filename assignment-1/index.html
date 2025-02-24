@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showImageName() {
+            setTimeout(() => {
+                document.getElementById('image-name').innerText = 'Profile Picture';
+            }, 10000);
+        }
+    </script>
+</head>
+<body onload="showImageName()">
+    <header>
+        <h1>My Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="markToGrade.html">Mark to Grade</a></li>
+                <li><a href="staff.html">Staff Information</a></li>
+                <li><a href="weather.html">Weather Converter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="profile.jpg/image.jpg"  id="profile-pic">
+        <p>Welcome to my personal profile page! I am a passionate software developer with a love for coding and technology.</p>
+        <p>In my spare time, I enjoy learning new programming languages and exploring innovative technologies that shape the future.</p>
+        <p id="image-name"></p>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-date"></span> Imaekhai Christopher</p>
+    </footer>
+
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

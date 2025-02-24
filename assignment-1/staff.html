@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+       const staffData = [
+    { name: "Brielle Williamson", title: "Integration Specialist", location: "New York", id: "4804", hireDate: "2012/12/02", salary: "$372,000" },
+    { name: "Herrod Chandler", title: "Sales Assistant", location: "San Francisco", id: "9608", hireDate: "2012/08/06", salary: "$137,500" },
+    { name: "Rhona Davidson", title: "Integration Specialist", location: "Tokyo", id: "6200", hireDate: "2010/10/14", salary: "$327,900" },
+    { name: "Colleen Hurst", title: "Javascript Developer", location: "San Francisco", id: "2360", hireDate: "2009/09/15", salary: "$205,500" },
+    { name: "Sonya Frost", title: "Software Engineer", location: "Edinburgh", id: "1667", hireDate: "2008/12/13", salary: "$103,600" },
+    { name: "Jena Gaines", title: "Office Manager", location: "London", id: "3814", hireDate: "2008/12/19", salary: "$90,560" },
+    { name: "Quinn Flynn", title: "Support Lead", location: "Edinburgh", id: "9497", hireDate: "2013/03/03", salary: "$342,000" },
+    { name: "Tiger Nixon", title: "System Architect", location: "Edinburgh", id: "5421", hireDate: "2011/04/25", salary: "$320,800" },
+    { name: "Garrett Winters", title: "Accountant", location: "Tokyo", id: "8422", hireDate: "2011/07/25", salary: "$170,750" },
+    { name: "Ashton Cox", title: "Junior Technical Author", location: "San Francisco", id: "1562", hireDate: "2009/01/12", salary: "$86,000" },
+    { name: "Cedric Kelly", title: "Senior Javascript Developer", location: "Edinburgh", id: "6224", hireDate: "2012/03/29", salary: "$433,060" },
+    { name: "Airi Satou", title: "Accountant", location: "Tokyo", id: "5407", hireDate: "2008/11/28", salary: "$162,700" },
+    { name: "Charde Marshall", title: "Regional Director", location: "San Francisco", id: "6741", hireDate: "2008/10/16", salary: "$470,600" },
+    { name: "Haley Kennedy", title: "Senior Marketing Designer", location: "London", id: "3597", hireDate: "2012/12/18", salary: "$313,500" },
+    { name: "Tatyana Fitzpatrick", title: "Regional Director", location: "London", id: "1965", hireDate: "2010/03/17", salary: "$385,750" },
+    { name: "Michael Silva", title: "Marketing Designer", location: "London", id: "1581", hireDate: "2012/11/27", salary: "$198,500" },
+    { name: "Paul Byrd", title: "Chief Financial Officer (CFO)", location: "New York", id: "3059", hireDate: "2010/06/09", salary: "$725,000" },
+    { name: "Gloria Little", title: "Systems Administrator", location: "New York", id: "1721", hireDate: "2009/04/10", salary: "$237,500" },
+    { name: "Bradley Greer", title: "Software Engineer", location: "London", id: "2558", hireDate: "2012/10/13", salary: "$132,000" },
+    { name: "Dai Rios", title: "Personnel Lead", location: "Edinburgh", id: "2290", hireDate: "2012/09/26", salary: "$217,500" },
+    { name: "Jenette Caldwell", title: "Development Lead", location: "New York", id: "1937", hireDate: "2011/09/03", salary: "$345,000" },
+    { name: "Yuri Berry", title: "Chief Marketing Officer (CMO)", location: "New York", id: "6154", hireDate: "2009/06/25", salary: "$675,000" },
+    { name: "Caesar Vance", title: "Pre-Sales Support", location: "New York", id: "8330", hireDate: "2011/12/12", salary: "$106,450" },
+    { name: "Doris Wilder", title: "Sales Assistant", location: "Sidney", id: "3023", hireDate: "2010/09/20", salary: "$85,600" },
+    { name: "Angelica Ramos", title: "Chief Executive Officer (CEO)", location: "London", id: "5797", hireDate: "2009/10/09", salary: "$1,200,000" },
+    { name: "Gavin Joyce", title: "Developer", location: "Edinburgh", id: "8822", hireDate: "2010/12/22", salary: "$92,575" },
+    { name: "Jennifer Chang", title: "Regional Director", location: "Singapore", id: "9239", hireDate: "2010/11/14", salary: "$357,650" },
+    { name: "Brenden Wagner", title: "Software Engineer", location: "San Francisco", id: "1314", hireDate: "2011/06/07", salary: "$206,850" },
+    { name: "Fiona Green", title: "Chief Operating Officer (COO)", location: "San Francisco", id: "2947", hireDate: "2010/03/11", salary: "$850,000" },
+    { name: "Shou Itou", title: "Regional Marketing", location: "Tokyo", id: "8899", hireDate: "2011/08/14", salary: "$163,000" },
+    { name: "Michelle House", title: "Integration Specialist", location: "Sidney", id: "2769", hireDate: "2011/06/02", salary: "$95,400" },
+    { name: "Suki Burks", title: "Developer", location: "London", id: "6832", hireDate: "2009/10/22", salary: "$114,500" },
+    { name: "Prescott Bartlett", title: "Technical Author", location: "London", id: "3606", hireDate: "2011/05/07", salary: "$145,000" },
+    { name: "Gavin Cortez", title: "Team Leader", location: "San Francisco", id: "2860", hireDate: "2008/10/26", salary: "$235,500" },
+    { name: "Martena Mccray", title: "Post-Sales support", location: "Edinburgh", id: "8240", hireDate: "2011/03/09", salary: "$324,050" },
+    { name: "Unity Butler", title: "Marketing Designer", location: "San Francisco", id: "5384", hireDate: "2009/12/09", salary: "$85,675" }
+];
+
+        function displayStaff() {
+            const staffList = document.getElementById('staff-list');
+            staffList.innerHTML = '';
+
+            staffData.forEach(staff => {
+                const listItem = document.createElement('li');
+                listItem.innerText = `${staff.name} - $${staff.salary}`;
+                staffList.appendChild(listItem);
+            });
+        }
+
+        function sortByName() {
+            staffData.sort((a, b) => a.name.localeCompare(b.name));
+            displayStaff();
+        }
+
+        function sortBySalary() {
+            staffData.sort((a, b) => a.salary - b.salary);
+            displayStaff();
+        }
+        function sortByTitle() {
+    const sortedData = staffData.sort((a, b) => a.title.localeCompare(b.title));
+    displayStaff();
+}
+
+        window.onload = displayStaff;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Staff Information</h1>
+        <button onclick="sortByName()">Sort by Name</button>
+        <button onclick="sortBySalary()">Sort by Salary</button>
+        <button onclick="sortByTitle()">Sort by Title</button>
+    </header>
+
+    <main>
+        <ul id="staff-list"></ul>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-date"></span> Imaekhai Christopher</p>
+    </footer>
+
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

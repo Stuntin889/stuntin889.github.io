@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark to Grade Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function MarkToGrade() {
+            const markInput = document.getElementById('mark-input-box').value;
+            const validationMessage = document.getElementById('validation-message');
+            let grade = '';
+            validationMessage.innerText = '';
+
+            try {
+                const mark = parseInt(markInput);
+
+                if (isNaN(mark)) {
+                    throw new Error("Input is not a number.");
+                }
+                if (mark < 0) {
+                    throw new Error("Mark cannot be negative.");
+                }
+                if (mark > 100) {
+                    throw new Error("Mark must be less than or equal to 100.");
+                }
+
+                if (mark > 90) grade = 'A';
+                else if (mark > 80) grade = 'B';
+                else if (mark > 70) grade = 'C';
+                else if (mark > 50) grade = 'D';
+                else grade = 'F';
+
+                document.getElementById('result').innerText = `Grade: ${grade}`;
+            } catch (error) {
+                validationMessage.innerText = error.message;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mark to Grade Converter</h1>
+    </header>
+
+    <main>
+        <input type="text" id="mark-input-box" placeholder="Enter your mark">
+        <button onclick="MarkToGrade()">Convert</button>
+        <p id="validation-message"></p>
+        <p id="result"></p>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-date"></span> Imaekhai Christopher</p>
+    </footer>
+    
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
